@@ -1,0 +1,164 @@
+/* 🔲 FONDO OSCURO – Overlay */
+.hidden {
+  display: none;
+}
+
+.crear-producto-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* fondo oscuro */
+  backdrop-filter: blur(3px); /* desenfoque elegante */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* 🧱 CONTENEDOR DEL FORMULARIO */
+.crear-producto-container {
+  background-color: white;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  padding: 32px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  max-width: 960px;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+/* 📦 PREVIEW IZQUIERDA */
+.crear-producto-preview {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background-color: #f9fafb;
+}
+
+.preview-label {
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #374151;
+}
+
+.preview-image-box {
+  width: 160px;
+  height: 160px;
+  background-color: #ffffff;
+  border: 2px dashed #d1d5db;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.preview-image-box:hover {
+  border-color: #4f46e5;
+}
+
+.preview-image-box img {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 4px;
+}
+
+.preview-precio {
+  margin-top: 16px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #111827;
+}
+
+.preview-stock {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+/* 📝 FORMULARIO DERECHA */
+.crear-producto-formulario {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.crear-producto-formulario h2 {
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+  color: #111827;
+}
+
+/* 🧾 CAMPOS DE FORMULARIO */
+.crear-producto-formulario label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #374151;
+  margin-top: 8px;
+}
+
+.crear-producto-formulario input,
+.crear-producto-formulario select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.crear-producto-formulario input:focus,
+.crear-producto-formulario select:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 1px #4f46e5;
+}
+
+/* 🔘 BOTONES DEL FORMULARIO */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary {
+  background-color: #4f46e5;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #4338ca;
+}
+
+.btn-cancelar {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+.btn-cancelar:hover {
+  background-color: #d1d5db;
+}

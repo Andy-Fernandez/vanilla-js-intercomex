@@ -1,0 +1,62 @@
+:root {
+  --color-empresa: #FED64C;
+  --color-empresa-claro: #FFF0C2;
+  --color-plomo: #F2F5F7;
+  --color-plomo-oscuro: #C3CCD5;
+  --color-verde: #0F935C;
+  --color-error: #CB3E33;
+  --color-texto: #1A2732;
+  --color-texto-intermedio: #394C60;
+}
+
+/* ::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+} */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
+/* Layout principal */
+.app-container {
+  gap: 0px; 
+  display: grid; 
+  height: 100dvh; 
+  grid-template-columns: auto 1fr;
+}
+
+/* Para tamaños menores */
+@media (max-width: 1200px) {
+  .product-card {
+    width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar {
+    display: none;
+  }
+  
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .header-right, .content-right {
+    display: none;
+  }
+  
+  .product-card {
+    width: 100%;
+  }
+}
