@@ -86,3 +86,4 @@ Inspirado en sistemas de punto de venta modernos y prácticas modulares en desar
 
 ---
 
+Este es un commit desde studio.firebase
