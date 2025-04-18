@@ -1,6 +1,7 @@
+/* crear-producto-form.css */
 /* 🔲 FONDO OSCURO – Overlay */
 .hidden {
-  display: none;
+  /* display: none; */
 }
 
 .crear-producto-modal {
@@ -35,13 +36,8 @@
 .crear-producto-preview {
   flex: 1;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
-  padding: 16px;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  background-color: #f9fafb;
 }
 
 .preview-label {

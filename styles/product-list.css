@@ -53,11 +53,11 @@
   object-fit: contain; /* Ajuste de la imagen */
 }
 
-.cart-product-name {
+.card-product-name {
   font-weight: bold;
   margin-bottom: 5px;
-  color: var(--color-texto); /* Color de texto más oscuro */
-  text-align: center; /* Centrar el texto */
+  color: var(--color-texto);
+  text-align: center;
 }
 
 .card-product-price {
