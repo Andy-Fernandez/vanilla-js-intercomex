@@ -1,21 +1,29 @@
 <!-- crear-producto-form.html -->
 <div class="crear-producto-modal">
   <div class="crear-producto-container">
-    <!-- Columna izquierda: Vista previa -->
+    <!-- Columna izquierda: Vista previa con tarjeta -->
     <div class="crear-producto-preview">
-      <label class="preview-label">Nombre</label>
-      <div class="preview-image-box">
-        <input type="file" id="imagenProducto" accept="image/*" hidden>
-        <label for="imagenProducto" class="upload-area">
-          <img src="/assets/upload-icon.svg" alt="Subir imagen">
-          <p>Arrastra o sube una imagen</p>
-        </label>
+      <div class="product-card-containter">
+        <div class="product-card" id="preview-card">
+          <div class="card-product-name" id="preview-nombre">Nombre</div>
+          <div class="card-product-image">
+            <!-- <img id="preview-foto" src="/assets/upload-icon.svg" alt="Vista previa"> -->
+            <div id="dropzone" class="dropzone">
+              <input type="file" id="imagenProducto" accept="image/*" hidden>
+              <label for="imagenProducto" class="upload-area">
+                <img src="/assets/upload-icon.svg" alt="Subir imagen" />
+                <p>Arrastra, haz clic o pega una imagen</p>
+              </label>
+            </div>
+          </div>
+          <div class="card-product-price" id="preview-precio">Bs 0.00</div>
+          <div class="card-product-stock" id="preview-stock">Stock: 100</div>
+        </div>
+
       </div>
-      <p class="preview-precio">Bs 0</p>
-      <p class="preview-stock">100 disponibles</p>
     </div>
 
-    <!-- Columna derecha: Formulario -->
+      <!-- Columna derecha: Formulario -->
     <form class="crear-producto-formulario">
       <h2>Nuevo producto</h2>
 
