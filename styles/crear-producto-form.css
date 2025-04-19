@@ -88,6 +88,13 @@
   box-shadow: 0 0 0 1px #4f46e5;
 }
 
+/* OBLIGATORIO DE COLOR ROJO PARA  */
+.must {
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-left: 4px;
+}
+
 /* 🔘 BOTONES DEL FORMULARIO */
 .form-actions {
   display: flex;
@@ -141,6 +148,11 @@
 
 
 .dropzone.dragover {
+  background-color: #e0e7ff;
+  border-color: #4f46e5;
+}
+
+.dropzone.hover {
   background-color: #e0e7ff;
   border-color: #4f46e5;
 }

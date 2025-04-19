@@ -1,7 +1,7 @@
 // renderProducts.js
 import { getProductos } from './data_base.js';
 import { agregarProductoAlCarrito } from './cart.js';
-import { asignarEventosCrearProdcuto, mostrarCrearProducto } from './crear-producto-form.js';
+import { mostrarCrearProducto } from './crear-producto-form.js';
 
 let productCardTemplate = null; // Variable global para almacenar la plantilla
 let createProductTemplate = null; // Variable global para almacenar la plantilla
