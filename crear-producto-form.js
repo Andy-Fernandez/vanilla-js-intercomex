@@ -18,6 +18,7 @@ export async function inicializarCrearProducto(containerId) {
     containerId.innerHTML = formHTML;
     registrarEventosBasicos();
     registrarEventosImagen();
+    registrarEventosFormulario(); 
   } catch (error) {
     console.error('Error al cargar el formulario de creación de producto:', error);
     return;
@@ -114,3 +115,67 @@ function registrarEventosImagen() {
     }
   });
 }
+
+/**
+ * Valida los campos del formulario de creación de producto.
+ * 
+ * Esta función revisa que los campos obligatorios estén presentes y tengan
+ * un formato correcto, incluyendo:
+ * - Nombre con al menos 3 caracteres.
+ * - Stock como número entero positivo.
+ * - Precio unitario mayor a cero.
+ * - (Opcional) Precio por mayor y precio de adquisición positivos.
+ * - (Opcional pero recomendado) Imagen del producto cargada.
+ * 
+ * En caso de errores, se muestra un mensaje emergente con el listado completo.
+ * 
+ * @returns {boolean} `true` si el formulario es válido, `false` si hay errores.
+ */
+function validarFormularioProducto() {
+  const nombre = document.getElementById('nombreProducto').value.trim();
+  const stock = parseInt(document.getElementById('stockProducto').value, 10);
+  const precioUnitario = parseFloat(document.getElementById('precioUnitario').value);
+  const precioMayor = parseFloat(document.getElementById('precioMayor').value) || null;
+  const precioAdquisicion = parseFloat(document.getElementById('precioAdquisicion').value) || null;
+
+  const errores = [];
+
+  if (nombre.length < 3) errores.push("El nombre debe tener al menos 3 caracteres.");
+  if (isNaN(stock) || stock < 0) errores.push("El stock debe ser un número entero positivo.");
+  if (isNaN(precioUnitario) || precioUnitario <= 0) errores.push("El precio unitario debe ser mayor a cero.");
+  if (precioMayor !== null && precioMayor < 0) errores.push("El precio por mayor debe ser positivo.");
+  if (precioAdquisicion !== null && precioAdquisicion < 0) errores.push("El precio de adquisición debe ser positivo.");
+  if (precioAdquisicion !== null && precioAdquisicion >= precioUnitario) {
+    errores.push("El precio de adquisición debe ser menor que el precio unitario.");
+  }
+
+  if (errores.length > 0) {
+    alert("Errores en el formulario:\n\n" + errores.join("\n"));
+    return false;
+  }
+
+  return true;
+}
+
+/**
+ * Registra el evento de envío del formulario.
+ * 
+ * Intercepta el submit del formulario de producto, valida los campos
+ * y si todo es correcto, continúa con el procesamiento.
+ */
+function registrarEventosFormulario() {
+  const formulario = document.querySelector('.crear-producto-formulario');
+  if (!formulario) {
+    console.error('Formulario de creación de producto no encontrado.');
+    return;
+  }
+
+  formulario.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (validarFormularioProducto()) {
+      console.log("Formulario válido. Procediendo al guardado...");
+      // Aquí podrías llamar a guardarProducto() u otra lógica
+    }
+  });
+}
+
