@@ -18,7 +18,9 @@ export async function inicializarCrearProducto(containerId) {
     containerId.innerHTML = formHTML;
     registrarEventosBasicos();
     registrarEventosImagen();
-    registrarEventosFormulario(); 
+    registrarEventosFormulario();
+    registrarEventoCancelar();
+    registrarVistaPreviaProducto();
   } catch (error) {
     console.error('Error al cargar el formulario de creación de producto:', error);
     return;
@@ -179,3 +181,58 @@ function registrarEventosFormulario() {
   });
 }
 
+/**
+ * Registra el evento del botón cancelar.
+ * 
+ * Muestra un mensaje de confirmación al usuario antes de cerrar el formulario.
+ */
+function registrarEventoCancelar() {
+  const botonCancelar = document.querySelector('.btn-cancelar');
+  if (!botonCancelar) return;
+
+  botonCancelar.addEventListener('click', () => {
+    const confirmar = confirm("¿Estás seguro que deseas cancelar? Los datos ingresados se perderán.");
+    if (confirmar) {
+      ocultarCrearProducto();
+    }
+  });
+}
+
+
+/**
+ * Registra eventos para actualizar dinámicamente la vista previa de producto.
+ */
+function registrarVistaPreviaProducto() {
+  const nombreInput = document.getElementById('nombreProducto');
+  const precioUnitarioInput = document.getElementById('precioUnitario');
+  const stockInput = document.getElementById('stockProducto');
+
+  const nombrePreview = document.getElementById('preview-nombre');
+  const precioPreview = document.getElementById('preview-precio');
+  const stockPreview = document.getElementById('preview-stock');
+
+  if (!nombreInput || !precioUnitarioInput || !stockInput || !nombrePreview || !precioPreview || !stockPreview) {
+    console.warn("Elementos de vista previa no encontrados.");
+    return;
+  }
+
+  nombreInput.addEventListener('input', () => {
+    nombrePreview.textContent = nombreInput.value.trim() || 'Nombre';
+  });
+
+  precioUnitarioInput.addEventListener('input', () => {
+    const precio = parseFloat(precioUnitarioInput.value);
+    precioPreview.textContent = isNaN(precio) ? 'Bs 0.00' : `Bs ${precio.toFixed(2)}`;
+  });
+
+  stockInput.addEventListener('input', () => {
+    const stock = parseInt(stockInput.value, 10);
+    if (stock <= 0) {
+      stockPreview.classList.add('error');
+      stockPreview.textContent = `Stock: ${stock}`;
+    } else {
+      stockPreview.textContent = `Stock: ${stock}`;
+      stockPreview.classList.remove('error');
+    }
+  });
+}

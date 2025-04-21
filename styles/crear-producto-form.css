@@ -188,3 +188,7 @@
   margin: 10px 0;
   position: relative;
 }
+
+.error {
+  color: var(--color-error);
+}

@@ -60,3 +60,7 @@ body {
     width: 100%;
   }
 }
+
+.error {
+  color: var(--color-error);
+}
