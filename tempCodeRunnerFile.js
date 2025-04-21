@@ -13,15 +13,6 @@ export function getProductos() {
   return productos;
 }
 
-/**
- * Agrega un producto nuevo al arreglo.
- * @param {Object} producto – Objeto con estructura de producto.
- */
-export function addProducto(producto) {
-  productos.push(producto);
-  console.log('Producto agregado:', producto);
-}
-
 export function actualizarStock(productId, nuevoStock) {
   const producto = productos.find(p => p.id === productId);
   if (producto) {
@@ -42,10 +33,12 @@ export const usuarios = [
   { id: 2, username: 'laura', nombre: 'Laura Flores', email: 'laura@fiestabolivia.com', password: 'password_encriptado_2', telefono: '69852147', rol: 'administrador' }
 ];
 
-export function getLastID() {
-  const ultimo = productos[productos.length - 1];
-  return ultimo ? ultimo.id : null;
+export function getID() {
+  let producto = productos.pop();
+  return producto ? producto.id : null;
 }
+
+console.log('ID de producto:', getID());
 
 // Ventas y detalles de venta
 export const ventas = [

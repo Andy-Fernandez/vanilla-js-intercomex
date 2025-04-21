@@ -1,6 +1,12 @@
 // crear-producto-form.js
+import { addProducto, getLastID  } from './data_base.js';
+import { actualizarProductos } from './renderProducts.js';
 
 let formHTML = "";
+let ultimoId = getLastID() || 0;
+function generarId() {
+  return ++ultimoId;
+}
 
 /**
  * Carga e inyecta el formulario de creación de producto en el DOM.
@@ -160,6 +166,16 @@ function validarFormularioProducto() {
 }
 
 /**
+ * Guarda el producto en la “base de datos” y actualiza la vista.
+ */
+function guardarProducto() {
+  const nuevoProducto = construirProductoDesdeFormulario();
+  addProducto(nuevoProducto);        // 1. persiste
+  actualizarProductos();             // 2. re‑renderiza
+  ocultarCrearProducto();            // 3. cierra modal
+}
+
+/**
  * Registra el evento de envío del formulario.
  * 
  * Intercepta el submit del formulario de producto, valida los campos
@@ -175,10 +191,33 @@ function registrarEventosFormulario() {
   formulario.addEventListener('submit', (e) => {
     e.preventDefault();
     if (validarFormularioProducto()) {
-      console.log("Formulario válido. Procediendo al guardado...");
-      // Aquí podrías llamar a guardarProducto() u otra lógica
+      guardarProducto();
     }
   });
+}
+
+/**
+ * Construye un objeto Producto con valores por defecto.
+ * TODO: Hay elementos que no tienen valor por defecto o que no segenera el codigo correctamente, pero esta bien para utilizarlo como prueba.
+ */
+function construirProductoDesdeFormulario() {
+  const imgSrc = document
+    .querySelector('#dropzone img').src || '/assets/logo-difuminado.png';
+
+  return {
+    id: generarId(),
+    nombre: document.getElementById('nombreProducto').value.trim(),
+    codigo: '',                       // por defecto
+    categoria: document.getElementById('categoriaProducto').value || 'Sin categoría',
+    stock: parseInt(document.getElementById('stockProducto').value, 10),
+    stockMinimo: 0,
+    precioUnitario: parseFloat(document.getElementById('precioUnitario').value),
+    precioPorMayor: parseFloat(document.getElementById('precioMayor').value) || null,
+    precioPreferencial: null,
+    costoAdquisicion: parseFloat(document.getElementById('precioAdquisicion').value) || null,
+    descripcion: '',
+    foto: imgSrc
+  };
 }
 
 /**
