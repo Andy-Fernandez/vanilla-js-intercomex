@@ -1,0 +1,86 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Producto {
+  id                 Int            @id @default(autoincrement())
+  nombre             String
+  codigo             String         @unique
+  categoria          String
+  stock              Int
+  stockMinimo        Int
+  precioUnitario     Float
+  precioPorMayor     Float?
+  precioPreferencial Float?
+  costoAdquisicion   Float
+  descripcion        String
+  foto               String
+  detalles           DetalleVenta[]
+}
+
+model Cliente {
+  id                 Int     @id @default(autoincrement())
+  nombre             String
+  telefono           String
+  documentoIdentidad String
+  tipoCliente        String // regular, mayorista, preferencial
+  email              String
+  direccion          String
+  ventas             Venta[]
+}
+
+model Usuario {
+  id       Int     @id @default(autoincrement())
+  username String  @unique
+  nombre   String
+  email    String  @unique
+  password String
+  telefono String
+  rol      String // administrador, vendedor, etc.
+  ventas   Venta[]
+}
+
+model Venta {
+  id                        Int            @id @default(autoincrement())
+  clienteId                 Int
+  usuarioId                 Int
+  fechaVenta                DateTime       @default(now())
+  subtotal                  Float
+  descuentoGlobalMonto      Float?
+  descuentoGlobalPorcentaje Float?
+  tipoVenta                 String // menor, mayor
+  total                     Float
+  estadoPago                String // completado, pendiente
+  cajaAsignada              String
+  comentario                String
+  moneda                    String
+  detalles                  DetalleVenta[]
+
+  cliente Cliente @relation(fields: [clienteId], references: [id])
+  usuario Usuario @relation(fields: [usuarioId], references: [id])
+}
+
+model DetalleVenta {
+  id                     Int   @id @default(autoincrement())
+  ventaId                Int
+  productoId             Int
+  cantidad               Int
+  precioUnitarioAplicado Float
+  descuentoPorProducto   Float
+  subtotal               Float
+
+  venta    Venta    @relation(fields: [ventaId], references: [id])
+  producto Producto @relation(fields: [productoId], references: [id])
+}
