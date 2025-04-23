@@ -1,0 +1,115 @@
+/* Estilos generales del carrito */
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-plomo);
+}
+
+/* Primer div */
+.product-details {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.cart-item-image {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-right: 8px;
+}
+
+.product-info {
+  flex-grow: 1;
+  margin-right: 8px;
+}
+
+.product-name {
+  font-size: 0.875rem;
+  font-weight: bold;
+  line-height: 1.25rem;
+  color: var(--color-texto);
+}
+
+.product-stock {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: var(--color-texto-intermedio);
+}
+
+.remove-item-button {
+  height: 40px;
+  width: 40px;
+  background: none;
+  border: 2px solid var(--color-error);
+  border-radius: 10px;
+  color: var(--color-error);
+  cursor: pointer;
+  padding: 5px;
+}
+
+/* Controles de cantidad */
+.product-quantity-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.product-quantity-controls > div {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--color-plomo-oscuro);
+  border-radius: 10px;
+  height: 100%;
+}
+
+.quantity-controls {
+  justify-content: space-between;
+  padding: 8px 12px;
+  display:flex; /*Añadido*/
+  align-items:center; /*Añadido*/
+}
+
+
+.quantity-button {
+  background: none;
+  border: none;
+  color: var(--color-texto);
+  cursor: pointer;
+  padding: 5px;
+  border: 2px solid var(--color-texto);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 1.25rem;
+  display:flex; /*Añadido*/
+  align-items:center; /*Añadido*/
+  justify-content:center; /*Añadido*/
+}
+
+.quantity-input {
+  border: none;
+  max-width: 50px;
+  text-align: center;
+  font-size: 1rem;
+  outline: none;
+}
+
+
+/* Precios */
+.item-price {
+  padding: 5px 10px;
+  margin-left: 10px;
+  color: var(--color-texto);
+}
+
+.item-total-price {
+  line-height: 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: var(--font-nunito, 'Nunito Sans', 'Helvetica', 'sans-serif', 'Arial');
+  color: var(--color-texto-intermedio);
+}

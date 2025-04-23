@@ -1,0 +1,57 @@
+<!-- crear-producto-form.html -->
+<div class="crear-producto-modal">
+  <div class="crear-producto-container">
+    <!-- Columna Derecha: Vista previa con tarjeta -->
+    <div class="crear-producto-preview">
+      <div class="product-card-containter">
+        <div class="product-card" id="preview-card">
+          <div class="card-product-name" id="preview-nombre">Nombre</div>
+          <div class="card-product-image">
+            <!-- <img id="preview-foto" src="/assets/upload-icon.svg" alt="Vista previa"> -->
+            <div id="dropzone" class="dropzone">
+              <input type="file" id="imagenProducto" accept="image/*" hidden>
+              <label for="imagenProducto" class="upload-area">
+                <img src="/assets/uplcoad-icon.png" alt="Subir imagen" />
+                <p>Arrastra, haz clic o pega una imagen</p>
+              </label>
+            </div>
+          </div>
+          <div class="card-product-price" id="preview-precio">Bs 0.00</div>
+          <div class="card-product-stock error" id="preview-stock">Stock: 0</div>
+        </div>
+      </div>
+    </div>
+    <!-- Columna Derecha: Formulario -->
+    <form class="crear-producto-formulario">
+      <h2>Nuevo producto</h2>
+
+      <label for="nombreProducto">Nombre del producto <span class="must">*</span></label>
+      <input type="text" id="nombreProducto" placeholder="Escribe" required>
+
+      <label for="stockProducto">Stock <span class="must">*</span></label>
+      <input type="number" id="stockProducto" placeholder="Escribe" min="0" required>
+
+      <label for="precioUnitario">Precio de Venta por Unidad <span class="must">*</span></label>
+      <input type="number" id="precioUnitario" placeholder="Bs 0,0" step="0.01" required>
+
+      <label for="precioMayor">Precio de Venta por Mayor</label>
+      <input type="number" id="precioMayor" placeholder="Bs 0,0" step="0.01">
+
+      <label for="precioAdquisicion">Precio de Adquisición (Cuánto te cuesta comprar)</label>
+      <input type="number" id="precioAdquisicion" placeholder="Bs 0,0" step="0.01">
+
+      <label for="categoriaProducto">Categoría</label>
+      <select id="categoriaProducto">
+        <option value="">Seleccionar Categoría</option>
+        <option value="1">Fiesta</option>
+        <option value="2">Carnavales</option>
+        <option value="3">Juegos Artificiales</option>
+      </select>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-cancelar">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>

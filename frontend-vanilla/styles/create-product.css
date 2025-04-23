@@ -1,0 +1,32 @@
+/* 
+  Este css heréda/usa estilos de producto-en-carrito.css
+  y los complementa con estilos específicos para la creación de productos.
+*/
+
+.create-product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 16px;
+  gap: 12px;
+  border: 2px solid #1f2937;
+  border-radius: 12px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.create-product-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.card-product-name {
+  font-weight: 600;
+  font-size: 1.2rem;
+  max-width: 100px;
+  color: #1f2937;
+  text-align: center;
+}
+
+

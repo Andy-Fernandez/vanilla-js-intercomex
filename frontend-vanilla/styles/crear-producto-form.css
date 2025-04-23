@@ -1,0 +1,194 @@
+/* crear-producto-form.css */
+/* 🔲 FONDO OSCURO – Overlay */
+.hidden {
+  display: none;
+}
+
+.crear-producto-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* 🧱 CONTENEDOR DEL FORMULARIO */
+.crear-producto-container {
+  background-color: white;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  padding: 32px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  max-width: 960px;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+/* 📦 PREVIEW IZQUIERDA */
+.crear-producto-preview {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* importante para stacking */
+  justify-content: center;
+  align-items: center;
+}
+
+.product-card-containter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+/* 📝 FORMULARIO DERECHA */
+.crear-producto-formulario {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.crear-producto-formulario h2 {
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+  color: #111827;
+}
+
+/* 🧾 CAMPOS DE FORMULARIO */
+.crear-producto-formulario label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #374151;
+  margin-top: 8px;
+}
+
+.crear-producto-formulario input,
+.crear-producto-formulario select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.crear-producto-formulario input:focus,
+.crear-producto-formulario select:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 1px #4f46e5;
+}
+
+/* OBLIGATORIO DE COLOR ROJO PARA  */
+.must {
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-left: 4px;
+}
+
+/* 🔘 BOTONES DEL FORMULARIO */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary {
+  background-color: #4f46e5;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #4338ca;
+}
+
+.btn-cancelar {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+.btn-cancelar:hover {
+  background-color: #d1d5db;
+}
+
+
+.dropzone {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #9ca3af;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #f9fafb;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+
+.dropzone.dragover {
+  background-color: #e0e7ff;
+  border-color: #4f46e5;
+}
+
+.dropzone.hover {
+  background-color: #e0e7ff;
+  border-color: #4f46e5;
+}
+
+.upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.upload-area img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.upload-area p {
+  color: #4b5563;
+  font-size: 0.8rem;
+  padding: 0 6px;
+}
+
+
+.card-product-image {
+  height: 140px;
+  width: 140px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+  position: relative;
+}
+
+.error {
+  color: var(--color-error);
+}
