@@ -2,12 +2,12 @@
 .sidebar {
   width: 250px;
   height: 100vh;
-  background-color: white;
+  background-color: white; /* Puedes usar una variable si defines un blanco */
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  border-right: 1px solid #eaeaea;
+  border-right: 1px solid var(--color-plomo-oscuro); /* Usando una variable existente */
 }
 
 .sidebar-section {
@@ -19,7 +19,7 @@
   justify-content: center;
   align-items: center;
   padding: 20px 0;
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid var(--color-plomo-oscuro); /* Usando una variable existente */
 }
 
 .logo-section img {
@@ -28,8 +28,8 @@
 }
 
 .company-section {
-  background-color: #F2F5F7;
-  border-bottom: 1px solid #eaeaea;
+  background-color: var(--color-plomo); /* Usando una variable existente */
+  border-bottom: 1px solid var(--color-plomo-oscuro); /* Usando una variable existente */
 }
 
 .company-profile {
@@ -53,12 +53,12 @@
 
 .company-name {
   font-weight: bold;
-  color: #1A2732;
+  color: var(--color-texto); /* Usando una variable existente */
   font-size: 14px;
 }
 
 .company-role {
-  color: #1A2732;
+  color: var(--color-texto); /* Usando una variable existente */
   opacity: 0.8;
   font-size: 12px;
 }
@@ -76,13 +76,16 @@
   padding: 6px 0;
 }
 
-.setting-item i {
+/* Estilos para los Material Icons */
+.setting-item .material-icons.icon {
   margin-right: 10px;
-  color: #1A2732;
+  color: var(--color-texto); /* Usando una variable existente */
+  font-size: 20px; /* Ajusta el tamaño del icono */
+  vertical-align: middle;
 }
 
 .setting-item span {
-  color: #1A2732;
+  color: var(--color-texto); /* Usando una variable existente */
   font-size: 14px;
 }
 
@@ -91,7 +94,7 @@
   flex-direction: column;
   gap: 5px;
   padding-top: 20px;
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid var(--color-plomo-oscuro); /* Usando una variable existente */
 }
 
 .tab-item {
@@ -103,29 +106,32 @@
   transition: background-color 0.2s;
 }
 
-.tab-item i {
+/* Estilos para los Material Icons en las pestañas */
+.tab-item .material-icons.icon {
   margin-right: 10px;
-  color: #1A2732;
+  color: var(--color-texto); /* Usando una variable existente */
+  font-size: 20px; /* Ajusta el tamaño del icono */
+  vertical-align: middle;
 }
 
 .tab-item span {
-  color: #1A2732;
+  color: var(--color-texto); /* Usando una variable existente */
   font-size: 14px;
 }
 
 .tab-item.active {
-  background-color: #FFF0C2;
+  background-color: var(--color-empresa-claro); /* Usando una variable existente */
 }
 
 .tab-item.active span {
   font-weight: bold;
-  color: #1A2732;
+  color: var(--color-texto); /* Usando una variable existente */
 }
 
 .logout-section {
   margin-top: auto;
   padding: 16px;
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid var(--color-plomo-oscuro); /* Usando una variable existente */
 }
 
 .logout-button {
@@ -136,22 +142,21 @@
   border-radius: 6px;
 }
 
-.logout-button i {
+/* Estilos para el Material Icon de cerrar sesión */
+.logout-button .material-icons.icon {
   margin-right: 10px;
-  color: #dc3545;
+  color: var(--color-error); /* Usando una variable existente */
+  font-size: 20px; /* Ajusta el tamaño del icono */
+  vertical-align: middle;
 }
 
 .logout-button span {
-  color: #dc3545;
+  color: var(--color-error); /* Usando una variable existente */
   font-weight: bold;
   font-size: 14px;
 }
 
-/* Para simular los iconos */
+/* Ocultar la simulación de iconos */
 i.icon {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-color: #1A2732;
-  border-radius: 4px;
+  display: none;
 }
