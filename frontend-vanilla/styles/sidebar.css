@@ -160,3 +160,11 @@
 i.icon {
   display: none;
 }
+
+/* Estilos para ocultar el sidebar en pantallas pequeñas */
+@media (max-width: 768px) { /* Ancho típico de tabletas pequeñas y teléfonos */
+  .sidebar {
+    display: none; /* Oculta el sidebar */
+    transform: translateX(-250px); /* Lo oculta moviéndolo hacia la izquierda */
+  }
+}
