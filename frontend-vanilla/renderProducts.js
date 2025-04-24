@@ -118,3 +118,20 @@ export function actualizarProductos() {
   
   container.appendChild(fragment);
 }
+
+// ### conección con el backend
+export async function cargarProductosDesdeBackend() {
+  try {
+    const response = await fetch("http://localhost:3000/productos");
+    if (!response.ok) throw new Error("Error al obtener productos");
+    
+    const productos = await response.json();
+    console.log("Productos cargados:", productos);
+
+    // Aquí podrías usar renderProducts(productos);
+  } catch (err) {
+    console.error("Error al conectar con el backend:", err);
+  }
+}
+
+

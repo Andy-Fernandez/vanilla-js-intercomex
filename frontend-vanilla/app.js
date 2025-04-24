@@ -8,6 +8,7 @@ import { inicializarCarrito,
   guardarCarritoEnLocalStorage
 } from './cart.js';
 import { inicializarCrearProducto } from './crear-producto-form.js';
+import { cargarProductosDesdeBackend } from './renderProducts.js';
 
 
 // Función helper para cargar un fragmento HTML en un contenedor por su ID
@@ -43,6 +44,14 @@ async function loadHTML() {
 
 document.addEventListener('DOMContentLoaded', () => {
   loadHTML();
+  // Load products from backend, async function
+  cargarProductosDesdeBackend()
+    .then(() => {
+      console.log('Productos cargados desde el backend');
+    })
+    .catch((error) => {
+      console.error('Error al cargar productos desde el backend:', error);
+    });
 });
 
 
